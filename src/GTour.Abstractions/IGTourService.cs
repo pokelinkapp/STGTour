@@ -1,53 +1,51 @@
-﻿using GTour.Abstractions.EventHandlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using GTour.Abstractions.EventHandlers;
 
-namespace GTour.Abstractions
-{
-  public interface IGTourService
-  {
+namespace GTour.Abstractions {
+    public interface IGTourService {
+        #region Events
 
-    #region Events
-    event TourRegisteredHandler OnTourRegistered;
-    event TourDeRegisteredHandler OnTourDeRegistered;
-    event TourStartingHandler OnTourStarting;
-    event TourStartedHandler OnTourStarted;
-    event TourCancelingHandler OnTourCanceling;
-    event TourCanceledHandler OnTourCanceled;
-    event TourCompletingHandler OnTourCompleting;
-    event TourCompletedHandler OnTourCompleted;
-    #endregion
+        event TourRegisteredHandler OnTourRegistered;
+        event TourDeRegisteredHandler OnTourDeRegistered;
+        event TourStartingHandler OnTourStarting;
+        event TourStartedHandler OnTourStarted;
+        event TourCancelingHandler OnTourCanceling;
+        event TourCanceledHandler OnTourCanceled;
+        event TourCompletingHandler OnTourCompleting;
+        event TourCompletedHandler OnTourCompleted;
 
-    #region Properties
-    bool ThrowOnTourNotFound { get; set; } 
+        #endregion
 
-    IGTour CurrentTour { get; }
-    #endregion
+        #region Properties
 
-    #region Methods
-    void RegisterTour(Abstractions.IGTour gTour);
-    
-    Task StartTour(string tourId, string startStepName = default);
-    
-    Task StartTour(Abstractions.IGTour gTour, string startStepName = default);
+        bool ThrowOnTourNotFound { get; set; }
 
-    Task StopTour();
+        IGTour CurrentTour { get; }
 
-    Task CancelTour();
+        #endregion
 
-    Task PreviousStep();
+        #region Methods
 
-    Task NextStep();
+        void RegisterTour(IGTour gTour);
 
-    Task GoToStep(string stepName);
+        Task StartTour(string tourId, string startStepName = default);
 
-    Task CompleteTour();
-    
-    void DeRegisterTour(IGTour gTour);
-    #endregion
+        Task StartTour(IGTour gTour, string startStepName = default);
 
-  }
+        Task StopTour();
+
+        Task CancelTour();
+
+        Task PreviousStep();
+
+        Task NextStep();
+
+        Task GoToStep(string stepName);
+
+        Task CompleteTour();
+
+        void DeRegisterTour(IGTour gTour);
+
+        #endregion
+    }
 }

@@ -1,35 +1,27 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace GTour.Abstractions
-{
-  public interface IGTourStep
-  {
+namespace GTour.Abstractions {
+    public interface IGTourStep {
+        string StepName { get; set; }
 
-    string StepName { get; set; }
+        int? TourStepSequence { get; set; }
 
-    int? TourStepSequence { get; set; }
+        bool SkipStep { get; set; }
 
-    Task CancelTour();
+        Task CancelTour();
 
-    Task PreviousStep();
+        Task PreviousStep();
 
-    Task NextStep();
+        Task NextStep();
 
-    Task GoToStep(string stepName);
+        Task GoToStep(string stepName);
 
-    Task CompleteTour();
+        Task CompleteTour();
 
-    bool SkipStep { get; set; }
+        Task Initialise();
 
-    Task Initialise();
+        Task DeActivate();
 
-    Task DeActivate();
-    
-    Task Activate(bool isFirstStep, bool isLastStep);
-  }
+        Task Activate(bool isFirstStep, bool isLastStep);
+    }
 }
