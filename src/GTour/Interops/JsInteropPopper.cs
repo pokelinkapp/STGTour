@@ -28,7 +28,7 @@ namespace GTour.Interops {
 
         #region Members
 
-        private const string _basePath = "./_content/STGTour.GTour/js/JsInteropPopper.min.js";
+        private const string _basePath = "/embedded/js/JsInteropPopper.min.js";
         private readonly Lazy<Task<IJSObjectReference>> _moduleTask;
 
         #endregion
