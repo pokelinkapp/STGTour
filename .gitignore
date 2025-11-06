@@ -37,3 +37,4 @@ node_modules
 .vs/
 Prerender/output
 src/GTour/wwwroot/js/**.js
+package-lock.json
